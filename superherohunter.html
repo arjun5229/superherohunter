@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superhero Hunter App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        #app-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        #result-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app-container">
+    <h2 class="text-center">Superhero Hunter App</h2>
+    <div class="form-group">
+        <label for="superheroInput">Enter Superhero Name:</label>
+        <input type="text" class="form-control" id="superheroInput" placeholder="e.g., Superman">
+    </div>
+    <button class="btn btn-primary" onclick="searchSuperhero()">Search</button>
+
+    <div id="result-container" class="mt-4"></div>
+</div>
+
+<script>
+    function searchSuperhero() {
+        // Get the input value
+        var superheroName = document.getElementById('superheroInput').value.trim();
+
+        // Check if the input is empty
+        if (superheroName === '') {
+            alert('Please enter a superhero name.');
+            return;
+        }
+
+        // Clear previous results
+        document.getElementById('result-container').innerHTML = '';
+
+        // Call the superhero API (you can replace this with a real API call)
+        // For demonstration purposes, we'll just display a message with the superhero name.
+        displayResult(superheroName);
+    }
+
+    function displayResult(superheroName) {
+        var resultContainer = document.getElementById('result-container');
+        var resultMessage = document.createElement('p');
+        resultMessage.textContent = 'Superhero found: ' + superheroName;
+        resultContainer.appendChild(resultMessage);
+    }
+</script>
+
+</body>
+</html>
